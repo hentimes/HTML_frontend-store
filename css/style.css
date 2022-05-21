@@ -1,0 +1,240 @@
+:root {
+                                                /* Colores Base */
+    --primario:         #9C27B0;
+    --primarioOscuro:   #89119D;
+    --secundario:       #FFCE00;
+    --secundarioOscuro: rgb(233,187,2);
+    --blanco:           #FFF;
+    --negro:            #000;
+                                                /* Fuente Principal */
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+                                                /* Aplicar un diseño de modelo de caja natural a todos 
+                                                los elementos, permitiendo realizar cambios en sus componentes. */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;                           /* <---  Setear el rem a 10 pixeles */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+                                                                        /* GLOBALES */
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;                           /* Interlineado: 1.5 en relacion al font-zise, no son px */
+}
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+a {
+    text-decoration: none;                      /* Eliminar el subrayado de texto en los links */
+}
+img {
+    width: 100%;
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;                             /* Centrar contenido del contenedor */
+}
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+h1 {    font-size: 4rem;}
+h2 {    font-size: 3.2rem;}
+h3 {    font-size: 2.4rem;}
+                                                                        /* HEADER */
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    margin: 3rem 0;
+}
+                                                                        /* FOOTER */
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    font-size: 2.5rem;
+    text-align: center;
+}
+                                                                        /* NAVEGACION */
+
+                                                /* Ejemplo de BLOQUE, ELEMENTO y MODIFICADOR: */
+
+.navegacion {                                   /* BLOQUE: Clase (Barra) */
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center; 
+    gap: 2rem;
+}
+
+.navegacion__enlace {                           /* ELEMENTO: Elemento de la calse (Enlaces en la barra) */
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+.navegacion__enlace--activo,                    /* MODIFICADOR: Modificador del elemento (Accion de cambiar color de los enlaces) */
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+                                                                        /* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+                                                                        /* PRODCUTOS */
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__informacion {
+    
+}
+
+.producto__nombre {
+    font-size: 4rem;
+}
+
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.producto__precio,
+.producto__nombre {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+                                                                        /* GRAFICOS */
+.grafico    {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;                     /* Estira la imagen, para que cubra el cuadro */
+    grid-column: 1 / 3;
+}
+
+.grafico__camisas {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico__node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px) {
+    .grafico__node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+                                                                        /* NOSOTROS */
+
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+ 
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.nosotros__img {
+    grid-row: 1 / 2;
+}
+ 
+@media (min-width: 768px) {
+    .nosotros__img {
+        grid-column: 2 / 3;
+    }
+}
+                                                                        /* BLOQUES */
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.bloque {
+    text-align: center;
+}
+.bloque__titulo {
+    margin: 0;
+}
+                                                                        /* PAGINA DEL PRODUCTO */
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.formulario__campo {
+    border-color: var(--primarioOscuro);        /* # */
+    border-width: 1rem;                         /* Estas tres lineas se pueden resumir a border: 1rem solid var(--primarioOscuro); */
+    border-style: solid;                        /* Desconozco si el orden influye */
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem; 
+    appearance: none;                           /* Elimina la flecha de desplegar que sale a la derecha */
+    outline:none;
+}
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease;      /* transition toma el valor bk-color del la clase submit y hace trancision al valor
+                                                bk-color de la clase submit:hover. Sirve para otros valores como font-size y asi */
+    grid-column: 1 / 3;
+    outline:none;                                            
+}
+
+.formulario__submit:hover {
+    cursor: pointer;                            /* al agregar estilo a un submit se pierde la manito, el pointer la agrega nvmnt */
+    background-color: var(--secundarioOscuro);
+}
+.camisa__imagen {
+
+}
+.camisa__contenido {
+
+}
